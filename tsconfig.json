@@ -1,0 +1,29 @@
+﻿{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "allowJs": true,
+        "sourceMap": true,
+        "sourceRoot": "./src/ts",
+        "strict": false,
+        "module": "es2015",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es5",
+        "importHelpers": true,
+        "lib": [
+            "es5",
+            "es2015",
+            "dom"
+        ],
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    },
+    "include": [
+        "./src/ts/**/*"
+    ],
+    "exclude": [
+        "./src/js/**/*"
+    ]
+}
