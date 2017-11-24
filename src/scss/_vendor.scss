@@ -1,7 +1,7 @@
 ﻿// if you have variables you would like to override, definde them here BEFORE the @import statement
 
-@import "node_modules/tasukete/scss/tasukete";
+@import "tasukete/scss/tasukete";
 
 // import the framework
-@import "node_modules/foundation-sites/scss/foundation";
+@import "foundation-sites/scss/foundation";
 @include foundation-everything(true);
