@@ -1,0 +1,22 @@
+%absolute-vertical {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+%absolute-horizontal {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+%transition {
+  transition: all .2s ease;
+}
+
+// vue utility
+[v-cloak] {
+    display: none !important;
+}

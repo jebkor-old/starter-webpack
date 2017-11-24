@@ -3,7 +3,6 @@ const gulp = require("gulp");
 const sass = require("gulp-sass");
 const ap = require("gulp-autoprefixer");
 const bs = require("browser-sync").create();
-const less = require("gulp-less");
 const clean = require("gulp-clean");
 
 const scssUrl = {
@@ -48,16 +47,8 @@ gulp.task("serve", function () {
 });
 //#endregion
 
-//#region file moving
-gulp.task("moment-i18n", function () {
-    gulp
-        .src("./node_modules/moment/locale/**/*")
-        .pipe(gulp.dest("./src/locale/moment"));
-});
 
-gulp.task("numeral-i18n", function () {
-    gulp
-        .src("./node_modules/numeral/locales/**/*")
-        .pipe(gulp.dest("./src/locale/numeral"));
-});
+
+//#region file moving
+
 //#endregion
