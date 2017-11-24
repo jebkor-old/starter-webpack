@@ -28,11 +28,11 @@ gulp.task("sass", function () {
 
 // used for deleting the old, "cached" version of the output css
 gulp.task("sass-clean", function () {
-    return gulp.src("dist/css/app.css").pipe(clean());
+    return gulp.src("dist/css/all.css").pipe(clean());
 });
 
 // used for watching our own scss for compilation
-gulp.task("sass-watch", ["sass-clean", "sass"], function () {
+gulp.task("sassquatch", ["sass-clean", "sass"], function () {
     gulp.watch(["src/scss/**/*"], ["sass-clean", "sass"]);
 });
 

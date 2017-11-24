@@ -1,7 +1,9 @@
 <template>
-    <div>
-        <h1>Welcome to my starter-webpack project!</h1>
-        <p>{{ message }}</p>
+    <div class="grid-x">
+        <div class="small-6 small-offset-3 cell text-center">
+            <h1>Welcome to my starter-webpack project!</h1>
+            <p>{{ message }}</p>
+        </div>
     </div>
 </template>
 

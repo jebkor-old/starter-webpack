@@ -10,77 +10,87 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 module.exports = {
     entry: {
-        'index': ['./src/ts/index.ts']
+        index: ["./src/ts/index.ts"]
     },
     module: {
         rules: [
             {
-                test: require.resolve('numeral'),
-                use: [{
-                    loader: 'expose-loader',
-                    options: 'numeral'
-                }]
+                test: require.resolve("numeral"),
+                use: [
+                    {
+                        loader: "expose-loader",
+                        options: "numeral"
+                    }
+                ]
             },
             {
-                test: require.resolve('moment'),
-                use: [{
-                    loader: 'expose-loader',
-                    options: 'moment'
-                }]
+                test: require.resolve("moment"),
+                use: [
+                    {
+                        loader: "expose-loader",
+                        options: "moment"
+                    }
+                ]
             },
             {
                 test: /\.vue$/,
-                loader: 'vue-loader',
+                loader: "vue-loader",
                 options: {
                     loaders: {
-                        'scss': 'vue-style-loader!css-loader!sass-loader',
-                        'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+                        scss: "vue-style-loader!css-loader!sass-loader",
+                        sass:
+                            "vue-style-loader!css-loader!sass-loader?indentedSyntax"
                     }
                 }
             },
             {
                 test: /\.ts(x?)$/,
-                loader: 'ts-loader',
+                loader: "ts-loader",
                 options: {
                     appendTsSuffixTo: [/\.vue$/]
-                },
+                }
             },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: [{
-                    loader: 'babel-loader',
-                }]
+                use: [
+                    {
+                        loader: "babel-loader"
+                    }
+                ]
             },
             {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: "url-loader",
                 options: {
-                    name: '[name].[ext]?[hash]'
+                    limit: 10000000 //~75mb
                 }
             },
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
-                    use: [{
-                        loader: "css-loader"
-                    }, {
-                        loader: "sass-loader",
-                        options: {
-                            includePaths: [__dirname + '/node_modules'],
-                            outputStyle: "compressed"
+                    use: [
+                        {
+                            loader: "css-loader"
+                        },
+                        {
+                            loader: "sass-loader",
+                            options: {
+                                includePaths: [__dirname + "/node_modules"],
+                                outputStyle: "compressed"
+                            }
                         }
-                    }],
+                    ],
                     fallback: "style-loader"
                 })
             }
         ]
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.vue', '.js', '.scss', '.css', '.html'],
+        extensions: [".ts", ".tsx", ".vue", ".js", ".scss", ".css", ".html"],
         alias: {
-            'vue$': 'vue/dist/vue.esm.js',
-            'jquery': 'jquery/src/jquery'
+            vue$: "vue/dist/vue.esm.js",
+            jquery: "jquery/src/jquery"
         }
     },
     devServer: {
@@ -88,7 +98,7 @@ module.exports = {
         noInfo: true,
         stats: {
             children: false
-        },
+        }
     },
     performance: {
         hints: false
@@ -98,17 +108,16 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: '[name]-bundle.css',
+            filename: "[name]-bundle.css",
             disable: false,
-            allChunks: true,
-
+            allChunks: true
         }),
 
         // The ProvicePlugin plugin is used to automatically load modules instead of having to import or require them everywhere
         // Bootstrap needs jquery, and if we include it here, we don't need to import jquery in a specific bootstrap bundle -  adds "global scope" to libraries like bootstrap
         new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery'
+            $: "jquery",
+            jQuery: "jquery"
         })
     ]
-}
+};
