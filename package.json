@@ -54,6 +54,7 @@
       "nprogress": "^0.2.0",
       "numeral": "^2.0.6",
       "paper-ripple": "^0.3.0",
+      "tasukete": "^1.0.5",
       "toastr": "^2.1.2",
       "vue": "^2.5.2",
       "vue-router": "^3.0.1"
