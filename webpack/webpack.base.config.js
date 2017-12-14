@@ -11,34 +11,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: require.resolve("numeral"),
-        use: [
-          {
-            loader: "expose-loader",
-            options: "numeral"
-          }
-        ]
-      },
-      {
-        test: require.resolve("moment"),
-        use: [
-          {
-            loader: "expose-loader",
-            options: "moment"
-          }
-        ]
-      },
-      {
-        test: /\.vue$/,
-        loader: "vue-loader",
-        options: {
-          loaders: {
-            scss: "vue-style-loader!css-loader!sass-loader",
-            sass: "vue-style-loader!css-loader!sass-loader?indentedSyntax"
-          }
-        }
-      },
-      {
         test: /\.ts(x?)$/,
         loader: "ts-loader",
         options: {
@@ -53,6 +25,16 @@ module.exports = {
             loader: "babel-loader"
           }
         ]
+      },
+      {
+        test: /\.vue$/,
+        loader: "vue-loader",
+        options: {
+          loaders: {
+            scss: "vue-style-loader!css-loader!sass-loader",
+            sass: "vue-style-loader!css-loader!sass-loader?indentedSyntax"
+          }
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
