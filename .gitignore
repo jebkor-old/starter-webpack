@@ -61,3 +61,4 @@ typings/
 # jebkor specific stuff
 # don't need to include dist files - they should be built
 /dist
+/node_modules
