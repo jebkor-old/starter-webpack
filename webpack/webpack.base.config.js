@@ -2,7 +2,6 @@
 const path = require("path");
 const webpack = require("webpack");
 const merge = require("webpack-merge");
-const HardSource = require("hard-source-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -66,8 +65,6 @@ module.exports = {
     children: false
   },
   plugins: [
-    new HardSource(),
-
     // The ProvicePlugin plugin is used to automatically load modules instead of having to import or require them everywhere
     // Bootstrap needs jquery, and if we include it here, we don't need to import jquery in a specific bootstrap bundle -  adds "global scope" to libraries like bootstrap
     new webpack.ProvidePlugin({

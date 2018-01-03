@@ -5,11 +5,18 @@
    "main": "gulpfile.js",
    "scripts": {
       "analyze": "SET NODE_ENV=production&& webpack --config webpack/webpack.analyze.config.js --color",
-      "development": "SET NODE_ENV=development&& webpack --config webpack/webpack.dev.config.js --color",
-      "production": "SET NODE_ENV=production&& webpack --config webpack/webpack.prod.config.js --color",
-      "development:watch": "SET NODE_ENV=development&& webpack --watch --config webpack/webpack.dev.config.js --color",
+      "unit": "mocha-webpack --require \"wwwroot/ts/test/support/domMocker.js\" --webpack-config webpack/webpack.test.config.js --colors --recursive wwwroot/ts/test/**/*.spec.ts",
+
       "sassquatch": "gulp sassquatch",
-      "start": "npm-run-all -p -r development:watch sassquatch"
+
+      "development": "SET NODE_ENV=development&& webpack --config webpack/webpack.dev.config.js --color",
+      "development:watch": "SET NODE_ENV=development&& webpack --watch --config webpack/webpack.dev.config.js --color",
+
+      "production": "SET NODE_ENV=production&& webpack --config webpack/webpack.prod.config.js --color",
+      "production:watch": "SET NODE_ENV=production&& webpack --watch --config webpack/webpack.prod.config.js --color",
+
+      "dev": "npm-run-all -p -r development:watch sassquatch",
+      "prod": "npm-run-all -p -r production:watch sassquatch"
    },
    "keywords": [],
    "author": "",
@@ -29,7 +36,7 @@
       "gulp-clean": "^0.3.2",
       "gulp-less": "^3.3.2",
       "gulp-sass": "^3.1.0",
-      "hard-source-webpack-plugin": "^0.5.6",
+      "hard-source-webpack-plugin": "^0.5.14",
       "node-sass": "^4.7.2",
       "npm-run-all": "^4.1.2",
       "sass-loader": "^6.0.6",
