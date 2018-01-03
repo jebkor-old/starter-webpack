@@ -1,6 +1,7 @@
 ﻿const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const baseConfig = require('./webpack.base.config.js');
 
 
@@ -25,7 +26,7 @@ module.exports = merge(baseConfig, {
                 return count >= 2;
             }
         }),
-        new webpack.optimize.UglifyJsPlugin({
+        new UglifyJsPlugin({
             compress: {
                 warnings: false,
                 screw_ie8: true,

@@ -1,12 +1,18 @@
 <template>
-  <div id="app">
-    <img src="../../../images/vue-logo.svg" alt="vue-logo">
+  <div id="app" class="grid-container full">
 
     <br><br>
 
     <div v-if="enableRouter == true">
-      <router-link to="/">Home</router-link>
-      <router-link to="/contact">Contact</router-link>
+      <ul class="menu align-center">
+        <li>
+          <router-link to="/">Home</router-link>
+        </li>
+        <li>
+          <router-link to="/about">About</router-link>
+        </li>
+      </ul>
+
       <router-view></router-view>
     </div>
 
@@ -17,21 +23,23 @@
   </div>
 </template>
 
-<script>
-import FrontpageView from "./FrontpageView";
 
+
+
+
+<script>
 export default {
     name: "app",
     data() {
-      return {
-        enableRouter: true
-      }
+        return {
+            enableRouter: true
+        };
     },
     components: {
-      FrontpageView
     }
 };
 </script>
+
 
 
 
@@ -42,12 +50,13 @@ export default {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
     color: #2c3e50;
     margin-top: 60px;
-}
 
-#app img {
-    width: 200px;
+    img {
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+    }
 }
 </style>
