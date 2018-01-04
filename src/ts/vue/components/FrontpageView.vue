@@ -1,7 +1,6 @@
 <template>
     <div class="grid-x">
         <div class="small-6 small-offset-3 cell text-center">
-            <img src="../../../images/vue-logo.svg" alt="vue-logo">
 
             <h1>Welcome to my starter-webpack project!</h1>
             <p>{{ message }}</p>
@@ -9,7 +8,7 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "frontpage-view",
   data() {

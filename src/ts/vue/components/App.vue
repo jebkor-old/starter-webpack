@@ -10,9 +10,14 @@
           <router-link to="/">Home</router-link>
         </li>
         <li>
-          <router-link to="/about">About</router-link>
+          <router-link to="/draggable-demo">Draggable Demo</router-link>
         </li>
       </ul>
+
+      <hr>
+
+      <img src="../../../images/vue-logo.svg" alt="vue-logo">
+
 
       <router-view></router-view>
     </div>
@@ -28,7 +33,7 @@
 
 
 
-<script>
+<script lang="ts">
 export default {
     name: "app",
     data() {
@@ -48,7 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 #app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-family: "Avenir", Helvetica, Arial, sans-serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
