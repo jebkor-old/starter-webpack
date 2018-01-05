@@ -5,10 +5,9 @@
             <h1>Demo of Vue.Dragon</h1>
             <p>AN example of how to use ‘VueDraggable’ and it's drag-n-drop capabilities. Sort, move, click and edit the configs to play around with it. It's pretty cool.</p>
 
-
             <br><br>
 
-            <draggable v-model="myArray" :options="{ sort: true }" @start="drag=true" @end="drag=false" class="grid-x grid-margin-x">
+            <draggable v-model="myArray" class="grid-x grid-margin-x">
                     <div v-for="element in myArray" :key="element.id" class="small-12 medium-4 cell card list-complete-item">
                         <div class="card-section">
                             <h4>{{ element.name }}</h4>
@@ -17,13 +16,11 @@
                     </div>
             </draggable>
 
+            <br>
 
-            <draggable v-model="myArray" :options="{ sort: true}" @start="drag=true" @end="drag=false">
+            <draggable v-model="myArray">
                 <li v-for="element in myArray" :key="element.id">{{ element.name }}</li>
             </draggable>
-
-            
-            
         </div>
     </div>
 </template>
@@ -35,7 +32,6 @@ export default {
   name: "DraggableDemo",
   data() {
     return {
-      message: "oiqfoinbf",
       myArray: [
         {
           id: 1,
@@ -104,7 +100,4 @@ export default {
   background: #efefef;
 }
 
-.dragging-stuff {
-  border: 2px solid red;
-}
 </style>
